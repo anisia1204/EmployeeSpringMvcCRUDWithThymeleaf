@@ -33,6 +33,18 @@ public class EmployeeController {
 
 		return "employees/list-employees";
 	}
+
+	@GetMapping("/showFormForAdd")
+	public String showFormForAdd(Model theModel){
+		//create the model attribute to bind the form data
+		Employee theEmployee = new Employee();
+
+		//we then add that as an attribute to the model, give the attribute name of employee and then give a reference to theEmployee
+		//the nice thing here is that our thymeleaf template will access this data for binding the form data
+		theModel.addAttribute("employee", theEmployee);
+
+		return "employees/employee-form"; //returning the actual template that we want to use for this form
+	}
 }
 
 
